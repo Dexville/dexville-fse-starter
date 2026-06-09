@@ -59,8 +59,8 @@ add_filter( 'acf/settings/load_json', 'dexville_fse_acf_json_load_point' );
  */
 require_once get_template_directory() . '/inc/cleanup.php';
 require_once get_template_directory() . '/inc/patterns.php';
+require_once get_template_directory() . '/inc/blocks.php';
 
 // Additional modules will be loaded in later phases:
-// require_once get_template_directory() . '/inc/blocks.php';
 // require_once get_template_directory() . '/inc/bindings.php';
 // require_once get_template_directory() . '/inc/options.php';

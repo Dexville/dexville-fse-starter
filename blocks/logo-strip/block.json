@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dexville/logo-strip",
+	"title": "Logo Strip",
+	"category": "media",
+	"icon": "images-alt2",
+	"description": "Horizontal logo strip with optional CSS marquee animation. No JavaScript required.",
+	"keywords": ["logo", "client", "partner", "carousel", "marquee"],
+	"textdomain": "dexville-fse",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"style": "file:./style.css",
+	"editorStyle": "file:./editor.css"
+}

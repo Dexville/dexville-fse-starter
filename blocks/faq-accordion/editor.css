@@ -1,0 +1,16 @@
+/**
+ * FAQ Accordion Block - Editor Styles
+ */
+
+.acf-block-placeholder {
+	padding: 2rem;
+	text-align: center;
+	background-color: #f0f0f1;
+	border: 1px dashed #c3c4c7;
+	border-radius: 2px;
+}
+
+.acf-block-placeholder p {
+	margin: 0;
+	color: #50575e;
+}
