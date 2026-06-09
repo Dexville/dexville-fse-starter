@@ -2,192 +2,315 @@
 
 A lean, performance-first WordPress full site editing (FSE) block theme built to replace page-builder bloat across SME client sites.
 
-## North Star
+## 🎯 North Star
 
 Minimal CSS/JS. Only the assets a page actually uses get loaded. Top Core Web Vitals out of the box, *before* any caching or CDN. Every client site self-contained and easy to maintain.
 
-## Features
+## ✨ Features
 
 - **Full Site Editing (FSE)** - theme.json-driven, zero legacy cruft
 - **ACF-first custom blocks** - PHP render templates, no front-end JS
-- **Aggressive performance cleanup** - separate block assets, no emoji scripts, minimal head clutter
+- **Aggressive performance cleanup** - per-block CSS, no emoji scripts, minimal head clutter
 - **System fonts** - zero external font requests
-- **Curated pattern library** - locked, content-fillable sections
+- **7 content patterns** - hero, features, CTA, testimonials, blog grid, contact
+- **3 style variations** - default, dark mode, warm & earthy
+- **2 ACF blocks** - FAQ Accordion (with schema), Logo Strip (CSS marquee)
+- **Options page + bindings** - site-wide settings synced to blocks
 - **ACF local JSON** - version-controlled field groups, auto-synced across environments
 
-## Phase 1 Complete ✓
+## 📦 What's Included
 
-The theme is now scaffolded with:
+### All 5 Development Phases Complete
 
-- `style.css` - theme header metadata
-- `theme.json` - tight performance-first settings with neutral palette and system fonts
-- `functions.php` - bootstraps modules from /inc
+✅ **Phase 1: Performance-First Scaffold**
+- Tight `theme.json` with system fonts & constrained scales
 - `inc/cleanup.php` - comprehensive performance optimizations
-- Directory structure for assets, templates, patterns, blocks
-- Build tooling ready for native blocks when needed
+- Directory structure ready for content
 
-**Current state:** Activatable theme that loads almost no CSS/JS and should score ~100 on Lighthouse on an empty page.
+✅ **Phase 2: Full Template Library**
+- 8 templates: index, page, single, archive, front-page, search, 404, + parts
+- Semantic HTML5, Query Loops, proper post meta
+- Header (logo + nav) & Footer (nav + social + copyright)
 
-## Requirements
+✅ **Phase 3: Pattern Library + Style Variations**
+- **7 Patterns:** Hero, Feature Grid, CTA Band, Content+Image, Testimonial, Blog Grid, Contact
+- **3 Style Variations:** Default (blue), Dark Mode, Warm & Earthy
+- All use theme.json presets, no inline CSS
+
+✅ **Phase 4: ACF Custom Blocks**
+- **FAQ Accordion:** `<details>` element, FAQPage schema, zero JS
+- **Logo Strip:** CSS-only marquee, optional links, grayscale hover
+- Auto-registered via `block.json`, fields in `/acf-json`
+
+✅ **Phase 5: Dashboard & Bindings**
+- **ACF Options Page:** Contact, Social, Tracking, Business info
+- **11 Block Bindings:** Phone, email, address, social URLs, business name
+- Auto-outputs Google Analytics/GTM code
+
+## 🚀 Quick Start
+
+### Requirements
 
 - **WordPress:** 6.4+
 - **PHP:** 8.0+
-- **Node.js:** 18+
-- **ACF Pro:** Unlimited license (required plugin for all client sites)
+- **Node.js:** 18+ (for local dev only)
+- **ACF Pro:** Unlimited license (required)
 
-## Local Development Setup
-
-### 1. Install Dependencies
+### Local Development
 
 ```bash
+# 1. Clone the repo
+git clone <this-repo> my-client-theme
+cd my-client-theme
+
+# 2. Install dependencies
 npm install
-```
 
-### 2. Add ACF Pro to wp-env
-
-**Option A: Local zip file**
-
-Download ACF Pro from your account, then edit `.wp-env.json` and add to the `plugins` array:
-
-```json
-"plugins": [
-  "./path/to/advanced-custom-fields-pro.zip",
-  "https://downloads.wordpress.org/plugin/classic-editor.latest-stable.zip"
-]
-```
-
-**Option B: Direct path**
-
-If you have ACF Pro extracted locally, you can mount it directly:
-
-```json
-"mappings": {
-  "wp-content/plugins/advanced-custom-fields-pro": "./path/to/acf-pro-folder"
-}
-```
-
-**Option C: Create a local ACF directory**
-
-```bash
-mkdir -p .acf-pro
-# Extract ACF Pro zip into .acf-pro/
-# Add .acf-pro/ to .gitignore if not already there
-```
-
-Then update `.wp-env.json`:
-
-```json
-"mappings": {
-  "wp-content/plugins/advanced-custom-fields-pro": "./.acf-pro"
-}
-```
-
-### 3. Start wp-env
-
-```bash
+# 3. ACF Pro is already in /vendor - just start wp-env
 npm run env:start
+
+# 4. Access your site
+# Frontend: http://localhost:8888
+# Admin:    http://localhost:8888/wp-admin (admin/password)
+
+# 5. Activate the theme
+# Go to Appearance → Themes → Activate "Dexville FSE Starter"
 ```
 
-This will:
-- Spin up WordPress at `http://localhost:8888`
-- Admin: `http://localhost:8888/wp-admin` (admin/password)
-- Mount this theme automatically
-- Install ACF Pro (if configured above)
-- Enable debugging for development
+The theme will auto-load with ACF Pro activated and all field groups synced from `/acf-json`.
 
-### 4. Activate the Theme
-
-1. Go to `http://localhost:8888/wp-admin`
-2. Navigate to Appearance → Themes
-3. Activate "Dexville FSE Starter"
-
-### 5. Verify Performance
-
-Create a blank page, publish it, and test with Lighthouse. You should see excellent Core Web Vitals scores right out of the box.
-
-## Other Useful Commands
+### Production Deployment
 
 ```bash
-# Stop wp-env
-npm run env:stop
-
-# Destroy wp-env (clean slate)
-npm run env:destroy
-
-# Build native blocks (when Phase 4 adds them)
-npm run build
-
-# Watch/develop native blocks
-npm run start
+# 1. Ensure ACF Pro is installed on production
+# 2. Upload theme to /wp-content/themes/
+# 3. Activate theme
+# 4. Field groups auto-sync from /acf-json
+# 5. Fill in Site Settings (admin menu)
 ```
 
-## Project Structure
+**No build step needed!** ACF blocks use PHP render templates.
+
+## 📖 How to Use
+
+### Site Settings
+
+**Go to:** Site Settings (admin menu)
+
+Fill in:
+- **Contact:** Phone, email, address, hours
+- **Social:** Facebook, Instagram, LinkedIn, Twitter, YouTube
+- **Tracking:** Google Analytics/GTM ID, Facebook Pixel
+- **Business:** Name, type (schema.org), description
+
+### Block Bindings
+
+Connect core blocks to settings values:
+
+1. Add a **Paragraph** or **Heading** block
+2. Click block → **Advanced** → **Attributes**
+3. Click **"+ Add binding"** next to "Content"
+4. Choose: Contact Phone, Contact Email, Business Name, etc.
+5. Block now displays live data from Site Settings!
+
+**Update once in settings = changes everywhere.**
+
+### Custom Blocks
+
+**Insert via block inserter (+):**
+
+**FAQ Accordion**
+- Add questions & answers via repeater
+- Outputs FAQPage JSON-LD schema
+- Pure CSS accordion (no JS)
+
+**Logo Strip**
+- Upload partner/client logos
+- Optional marquee animation (CSS only)
+- Links per logo, background color picker
+
+### Patterns
+
+**Insert via Patterns tab:**
+
+Find under these categories:
+- **Dexville Patterns** (all 7)
+- **Banner** (Hero)
+- **Call to Action** (CTA Band)
+- **Columns** (Feature Grid, Content+Image)
+- **Contact** (Contact Section)
+- **Posts** (Blog Grid)
+
+### Style Variations
+
+**Change theme colors:**
+
+1. Go to **Appearance → Editor**
+2. Click **Styles** (paintbrush icon)
+3. Browse: Default, Dark Mode, Warm & Earthy
+4. Click to preview, save to apply
+
+## 🎨 Customization Per Client
+
+**Don't fork the code.** Customize via:
+
+1. **Create a style variation** in `/styles/client-name.json`
+2. **Upload logo** in Site Settings
+3. **Set colors** in the style variation
+4. **Fill in Site Settings**
+
+Example `/styles/client-name.json`:
+
+```json
+{
+  "$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+  "version": 3,
+  "title": "Client Name",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#your-brand-color",
+          "name": "Primary"
+        }
+      ]
+    }
+  }
+}
+```
+
+## 📁 Project Structure
 
 ```
 dexville-fse-starter/
-├── style.css              # Theme header metadata
-├── theme.json             # Global settings + styles
-├── functions.php          # Theme setup + module loader
-├── .wp-env.json          # Local dev environment
-├── package.json          # Build scripts
-├── /inc                  # Theme modules
-│   └── cleanup.php       # Performance optimizations ★
-├── /assets               # Fonts, CSS, JS, images
-├── /templates            # FSE templates (coming in Phase 2)
-├── /parts                # Header, footer parts (coming in Phase 2)
-├── /patterns             # Block patterns (coming in Phase 3)
-├── /styles               # theme.json variations (coming in Phase 3)
-├── /blocks               # ACF + native blocks (coming in Phase 4)
-├── /acf-json             # ACF field groups (auto-synced)
-└── /build                # Compiled native blocks (appears in Phase 4)
+├── style.css                    # Theme metadata
+├── theme.json                   # Global settings + styles
+├── functions.php                # Module loader
+├── CLAUDE.md                    # Build brief (architecture decisions)
+├── README.md                    # This file
+│
+├── /inc                         # PHP modules
+│   ├── cleanup.php              # Performance optimizations ★
+│   ├── patterns.php             # Pattern registration
+│   ├── blocks.php               # ACF block registration
+│   ├── options.php              # Options page + helpers
+│   └── bindings.php             # Block binding sources
+│
+├── /templates                   # FSE templates (.html)
+│   ├── index.html              # Fallback / blog listing
+│   ├── page.html               # Static pages
+│   ├── single.html             # Blog posts
+│   ├── archive.html            # Category/tag archives
+│   ├── front-page.html         # Homepage
+│   ├── search.html             # Search results
+│   └── 404.html                # Not found
+│
+├── /parts                       # Template parts
+│   ├── header.html             # Site header
+│   └── footer.html             # Site footer
+│
+├── /patterns                    # Block patterns (.php)
+│   ├── hero.php
+│   ├── feature-grid.php
+│   ├── cta-band.php
+│   ├── content-image.php
+│   ├── testimonial.php
+│   ├── blog-grid.php
+│   └── contact-section.php
+│
+├── /styles                      # Style variations (.json)
+│   ├── default.json
+│   ├── dark.json
+│   └── warm.json
+│
+├── /blocks                      # ACF blocks
+│   ├── /faq-accordion
+│   │   ├── block.json          # Block metadata
+│   │   ├── render.php          # PHP template
+│   │   ├── style.css           # Front-end CSS
+│   │   └── editor.css          # Editor CSS
+│   └── /logo-strip
+│       ├── block.json
+│       ├── render.php
+│       ├── style.css
+│       └── editor.css
+│
+├── /acf-json                    # ACF field groups (auto-synced)
+│   ├── group_faq_accordion.json
+│   ├── group_logo_strip.json
+│   └── group_site_settings.json
+│
+├── /assets                      # Static assets
+│   ├── /fonts                  # Self-hosted fonts
+│   ├── /css                    # Custom CSS (if needed)
+│   ├── /js                     # Custom JS (if needed)
+│   └── /images                 # Theme images
+│
+├── /build                       # Native blocks (future use)
+└── /vendor                      # ACF Pro (gitignored except .gitkeep)
 ```
 
-## Next Phases
+## ⚡ Performance Features
 
-**Phase 2:** Templates + parts (header, footer, page, single, archive, etc.)
+The `inc/cleanup.php` module aggressively optimizes WordPress:
 
-**Phase 3:** Pattern library + style variations
+- ✅ **Per-block CSS loading** - only CSS for blocks on the page
+- ✅ **No emoji scripts** - removes detection JS/CSS
+- ✅ **No jQuery** - dequeued on front-end (unless needed by a block)
+- ✅ **Clean `<head>`** - removes RSD, wlwmanifest, generator, shortlink, oEmbed discovery
+- ✅ **No wp-embed.js** - disabled (re-enable if needed)
+- ✅ **No SVG filters** - removes duotone global styles
+- ✅ **No block directory** - prevents external API calls in editor
+- ✅ **System fonts** - zero external font requests
+- ✅ **ACF blocks = server-rendered** - zero front-end JS
 
-**Phase 4:** Custom blocks (ACF-first) + ACF local JSON setup
+**Expected Lighthouse scores (before caching):** 95-100
 
-**Phase 5:** Dashboard (ACF Options Page + field bindings)
-
-**Phase 6:** Performance + polish pass
-
-See `CLAUDE.md` for the complete build brief.
-
-## Distribution Model
-
-This is a **template repository**. Clone per client:
+## 🔧 NPM Scripts
 
 ```bash
-# For a new client
-git clone <this-repo> client-name-theme
-cd client-name-theme
-# Customize theme.json color palette, create a style variation, add logo
+npm run env:start      # Start wp-env
+npm run env:stop       # Stop wp-env
+npm run env:destroy    # Destroy wp-env
+
+npm run start          # Watch native blocks (future use)
+npm run build          # Build native blocks (future use)
+npm run lint:css       # Lint CSS
+npm run lint:js        # Lint JavaScript
 ```
 
-Per-client customization = style variation + settings, not a code fork.
+## 🌐 Distribution Model
 
-## Performance Notes
+This is a **template repository**:
 
-The `inc/cleanup.php` file is the performance lever. It:
+1. **Clone per client:** `git clone <this-repo> client-name-theme`
+2. **Customize:** Create style variation, add logo, fill settings
+3. **Deploy:** Upload to hosting, activate ACF Pro, activate theme
+4. **Field groups auto-sync** from `/acf-json`
 
-- ✓ Enables per-block CSS loading
-- ✓ Removes emoji detection scripts
-- ✓ Dequeues unused block library styles
-- ✓ Cleans `<head>` clutter
-- ✓ Disables wp-embed.js
-- ✓ Dequeues jQuery on front-end
-- ✓ Removes global SVG filters
-- ✓ Disables block directory
+**Pull starter updates:**
 
-All optimizations are documented inline with comments.
+```bash
+# In client repo
+git remote add upstream <starter-repo-url>
+git fetch upstream
+git merge upstream/main
+```
 
-## License
+## 📝 License
 
 GPL v2 or later
 
 ---
 
-**Need help?** See `CLAUDE.md` for the complete project brief and architecture decisions.
+## 🆘 Support & Documentation
+
+- **Build Brief:** See `CLAUDE.md` for architecture decisions
+- **ACF Pro Docs:** https://www.advancedcustomfields.com/resources/
+- **FSE Handbook:** https://developer.wordpress.org/themes/block-themes/
+- **Block Bindings:** https://developer.wordpress.org/block-editor/reference-guides/block-api/block-bindings/
+
+---
+
+**Built with performance, maintainability, and developer experience in mind.** 🚀
