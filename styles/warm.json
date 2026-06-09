@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"title": "Warm & Earthy",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "base",
+					"color": "#fffbf5",
+					"name": "Base"
+				},
+				{
+					"slug": "contrast",
+					"color": "#2c1810",
+					"name": "Contrast"
+				},
+				{
+					"slug": "primary",
+					"color": "#d97706",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#92400e",
+					"name": "Secondary"
+				},
+				{
+					"slug": "neutral-100",
+					"color": "#fef3e2",
+					"name": "Neutral 100"
+				},
+				{
+					"slug": "neutral-200",
+					"color": "#fde8c8",
+					"name": "Neutral 200"
+				},
+				{
+					"slug": "neutral-800",
+					"color": "#78350f",
+					"name": "Neutral 800"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--contrast)"
+		}
+	}
+}
