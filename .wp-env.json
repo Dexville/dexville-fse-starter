@@ -1,7 +1,8 @@
 {
-	"core": "latest",
-	"phpVersion": "8.1",
+	"core": null,
+	"testsEnvironment": false,
 	"plugins": [
+		"./vendor/advanced-custom-fields-pro",
 		"https://downloads.wordpress.org/plugin/classic-editor.latest-stable.zip"
 	],
 	"themes": [
