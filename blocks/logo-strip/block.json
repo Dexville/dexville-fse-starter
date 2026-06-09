@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "dexville/logo-strip",
+	"name": "acf/dexville-logo-strip",
 	"title": "Logo Strip",
 	"category": "media",
 	"icon": "images-alt2",
