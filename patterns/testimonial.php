@@ -3,7 +3,7 @@
  * Title: Testimonial
  * Slug: dexville-fse/testimonial
  * Description: Customer testimonial or quote section
- * Categories: dexville-fse-content
+ * Categories: dexville, text, featured
  * Keywords: testimonial, quote, review, customer
  */
 ?>

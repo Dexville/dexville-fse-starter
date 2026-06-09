@@ -3,7 +3,7 @@
  * Title: Hero Section
  * Slug: dexville-fse/hero
  * Description: Large hero section with heading, description, and call-to-action buttons
- * Categories: dexville-fse-hero, featured
+ * Categories: dexville, banner, featured
  * Keywords: hero, header, banner, cta
  */
 ?>

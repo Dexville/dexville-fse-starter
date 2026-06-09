@@ -3,7 +3,7 @@
  * Title: Feature Grid
  * Slug: dexville-fse/feature-grid
  * Description: Three-column feature grid with icons and descriptions
- * Categories: dexville-fse-content, featured
+ * Categories: dexville, columns, featured
  * Keywords: features, grid, columns, icons
  */
 ?>

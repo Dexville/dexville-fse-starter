@@ -13,37 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Register custom pattern categories
+ * Note: We use WordPress built-in categories where possible to avoid duplicates
  */
 function dexville_fse_register_pattern_categories() {
+	// Only register our main theme category
+	// Use WordPress built-in categories: featured, banner, buttons, call-to-action, columns, contact, etc.
 	register_block_pattern_category(
-		'dexville-fse',
+		'dexville',
 		array(
-			'label'       => __( 'Dexville FSE', 'dexville-fse' ),
+			'label'       => __( 'Dexville Patterns', 'dexville-fse' ),
 			'description' => __( 'Curated patterns for Dexville FSE Starter theme', 'dexville-fse' ),
-		)
-	);
-
-	register_block_pattern_category(
-		'dexville-fse-hero',
-		array(
-			'label'       => __( 'Hero Sections', 'dexville-fse' ),
-			'description' => __( 'Large page headers and hero sections', 'dexville-fse' ),
-		)
-	);
-
-	register_block_pattern_category(
-		'dexville-fse-content',
-		array(
-			'label'       => __( 'Content Sections', 'dexville-fse' ),
-			'description' => __( 'Content layouts with text and images', 'dexville-fse' ),
-		)
-	);
-
-	register_block_pattern_category(
-		'dexville-fse-cta',
-		array(
-			'label'       => __( 'Call to Action', 'dexville-fse' ),
-			'description' => __( 'CTA sections and conversion-focused patterns', 'dexville-fse' ),
 		)
 	);
 }
@@ -89,7 +68,7 @@ function dexville_fse_register_patterns() {
 		// Parse categories
 		$categories = ! empty( $pattern_data['categories'] )
 			? array_map( 'trim', explode( ',', $pattern_data['categories'] ) )
-			: array( 'dexville-fse' );
+			: array( 'dexville' );
 
 		// Parse keywords
 		$keywords = ! empty( $pattern_data['keywords'] )

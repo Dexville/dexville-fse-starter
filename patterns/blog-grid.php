@@ -3,7 +3,7 @@
  * Title: Blog Post Grid
  * Slug: dexville-fse/blog-grid
  * Description: Grid of recent blog posts with featured images
- * Categories: dexville-fse-content
+ * Categories: dexville, posts, featured
  * Keywords: blog, posts, grid, news, articles
  */
 ?>

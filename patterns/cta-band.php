@@ -3,7 +3,7 @@
  * Title: CTA Band
  * Slug: dexville-fse/cta-band
  * Description: Call-to-action band with heading and button
- * Categories: dexville-fse-cta, featured
+ * Categories: dexville, call-to-action, featured
  * Keywords: cta, call to action, button, banner
  */
 ?>

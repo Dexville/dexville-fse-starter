@@ -3,7 +3,7 @@
  * Title: Content with Image
  * Slug: dexville-fse/content-image
  * Description: Two-column layout with content and image, easily reversible
- * Categories: dexville-fse-content
+ * Categories: dexville, columns, featured
  * Keywords: content, image, columns, media
  */
 ?>

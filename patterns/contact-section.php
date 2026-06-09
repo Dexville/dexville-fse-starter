@@ -3,7 +3,7 @@
  * Title: Contact Section
  * Slug: dexville-fse/contact-section
  * Description: Contact information section (will support ACF bindings in Phase 5)
- * Categories: dexville-fse-content
+ * Categories: dexville, contact, featured
  * Keywords: contact, address, phone, email
  */
 ?>
