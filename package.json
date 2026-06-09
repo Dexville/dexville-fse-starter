@@ -1,0 +1,35 @@
+{
+	"name": "dexville-fse-starter",
+	"version": "1.0.0",
+	"description": "A lean, performance-first FSE block theme with ACF-first custom blocks",
+	"author": "Your Name",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"theme",
+		"block-theme",
+		"fse",
+		"full-site-editing",
+		"acf",
+		"performance"
+	],
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^10.13.0",
+		"@wordpress/scripts": "^31.4.0"
+	},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=9.0.0"
+	}
+}

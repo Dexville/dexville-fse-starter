@@ -1,3 +1,45 @@
+# Vendor (PHP dependencies)
 vendor/
 vendor/*
 !vendor/.gitkeep
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build artifacts (optionally commit /build if deploying from repo)
+build/
+
+# WordPress
+.wp-env.override.json
+.wordpress-env
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# ACF Pro plugin (if mounted locally)
+plugins/advanced-custom-fields-pro/
+
+# Temporary files
+*.tmp
+*.bak
+*~

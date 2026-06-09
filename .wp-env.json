@@ -1,0 +1,26 @@
+{
+	"core": "latest",
+	"phpVersion": "8.1",
+	"plugins": [
+		"https://downloads.wordpress.org/plugin/classic-editor.latest-stable.zip"
+	],
+	"themes": [
+		"."
+	],
+	"config": {
+		"WP_DEBUG": true,
+		"WP_DEBUG_LOG": true,
+		"WP_DEBUG_DISPLAY": false,
+		"SCRIPT_DEBUG": true
+	},
+	"mappings": {
+	},
+	"port": 8888,
+	"env": {
+		"development": {
+			"plugins": [
+				"https://downloads.wordpress.org/plugin/query-monitor.latest-stable.zip"
+			]
+		}
+	}
+}
